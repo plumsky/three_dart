@@ -294,7 +294,7 @@ class WebGLProgram extends DefaultProgram with WebGLProgramExtra {
       versionString = (!kIsWeb && (Platform.isMacOS || Platform.isWindows)) ? "#version 410\n" : "#version 300 es\n";
 
       prefixVertex = '${[
-        'precision mediump sampler2DArray;',
+         (!kIsWeb && (Platform.isMacOS || Platform.isWindows)) ? '' : 'precision mediump sampler2DArray;',
         '#define attribute in',
         '#define varying out',
         '#define texture2D texture'
